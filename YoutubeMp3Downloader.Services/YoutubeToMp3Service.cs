@@ -11,6 +11,7 @@ public class YoutubeToMp3Service
     {
         try
         {
+            Console.WriteLine($"Download {url}");
             var path = "C:/YoutubeMp3Downloader";
             if (!Directory.Exists(path))
             {
