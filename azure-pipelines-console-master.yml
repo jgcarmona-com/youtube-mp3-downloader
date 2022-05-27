@@ -23,10 +23,10 @@ steps:
   - task: DotNetCoreCLI@2
     displayName: "dotnet restore"
     inputs:
-    command: restore
-    projects: |
-     **/Console.csproj
-     **/Services.csproj
+        command: restore
+        projects: |
+         **/Console.csproj
+         **/Services.csproj
 
   - task: DotNetCoreCLI@2
     displayName: "dotnet build"
