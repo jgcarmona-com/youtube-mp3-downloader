@@ -30,7 +30,7 @@ steps:
          **/*Services.csproj
 
   - task: DotNetCoreCLI@2
-    displayName: "dotnet build"
+    displayName: "Build & Publish"
     inputs:
       command: publish 
       arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)

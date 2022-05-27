@@ -30,10 +30,11 @@ steps:
         restoreSolution: '$(solution)'
 
     - task: DotNetCoreCLI@2
+      displayName: "Build & Publish"
       inputs: 
-        workingDirectory: YoutubeMp3Downloader.MAUI
         command: publish
-        arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+        arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)
+        workingDirectory: YoutubeMp3Downloader.MAUI
         publishWebProjects: false
       enabled: true
 
