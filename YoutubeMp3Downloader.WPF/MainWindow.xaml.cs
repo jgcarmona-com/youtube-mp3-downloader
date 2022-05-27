@@ -22,40 +22,11 @@ namespace YoutubeMp3Downloader.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private StringWriterExt _sw;
-        private YoutubeToMp3Service _service;
-
-        public string ConsoleOutput { get; set; }
-
-        public string Url { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-
-            _service = new YoutubeToMp3Service();
+            DataContext = App.Current.MainVM;
         }
-
-        void btn_Click(object sender, RoutedEventArgs e)
-        {
-            var writer = new StringWriterExt(true); // true = AutoFlush
-            writer.Flushed += new StringWriterExt.FlushedEventHandler(writer_Flushed);
-
-            TextWriter stdout = Console.Out;
-            try
-            {
-                Console.SetOut(writer);
-                _service.DownloadMp3ByUrl(Url);
-            }
-            finally
-            {
-                Console.SetOut(stdout);
-            }
-        }
-
-        void writer_Flushed(object sender, EventArgs args)
-        {
-            ConsoleOutput += sender.ToString();
-         }
     }
 }

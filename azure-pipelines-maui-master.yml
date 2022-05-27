@@ -1,14 +1,15 @@
 trigger:
-  batch: true
-  paths:
-    include:
-    - azure-pipelines-maui-master.yml
-    exclude:
-    - azure-pipelines-console-master.yml
-    - YoutubeMp3Downloader.Console/*
-  branches:
-    include:
-      - 'master'
+  false
+  #batch: true
+  #paths:
+  #  include:
+  #  - azure-pipelines-maui-master.yml
+  #  exclude:
+  #  - azure-pipelines-console-master.yml
+  #  - YoutubeMp3Downloader.Console/*
+  #branches:
+  #  include:
+  #    - 'master'
 
 pool:
   vmImage: 'windows-latest'

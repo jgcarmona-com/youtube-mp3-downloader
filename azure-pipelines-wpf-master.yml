@@ -1,0 +1,44 @@
+trigger:
+  batch: true
+  paths:
+    include:
+    - azure-pipelines-console-master.yml
+    exclude:
+    - azure-pipelines-maui-master.yml
+    - YoutubeMp3Downloader.MAUI/*
+  branches:
+    include:
+      - 'master'
+
+name: $(Date:yyyy-MM-dd)$(Rev:.r)
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.WPF.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet restore"
+    inputs:
+        command: restore
+        projects: |
+         **/*WPF.csproj
+         **/*Services.csproj
+
+  - task: DotNetCoreCLI@2
+    displayName: "Build & Publish"
+    inputs:
+      command: publish 
+      arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)
+      workingDirectory: YoutubeMp3Downloader.WPF
+      publishWebProjects: false
+    enabled: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish CONSOLE Artifact"
+    inputs:
+      ArtifactName: WPF
