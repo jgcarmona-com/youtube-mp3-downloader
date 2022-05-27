@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeMp3Downloader", "YoutubeMp3Downloader.csproj", "{91504E34-AAEC-4500-9DA7-9B6844A50813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoutubeMp3Downloader.MAUI", "YoutubeMp3Downloader.MAUI\YoutubeMp3Downloader.MAUI.csproj", "{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoutubeMp3Downloader.Console", "YoutubeMp3Downloader.Console\YoutubeMp3Downloader.Console.csproj", "{432A4A47-B3B7-4820-9006-4155BC4C2FD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeMp3Downloader.Services", "YoutubeMp3Downloader.Services\YoutubeMp3Downloader.Services.csproj", "{895BAC62-AE6B-4D05-A5B9-A98B52CBA223}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PIPELINES", "PIPELINES", "{6EF523A2-C0E3-4F28-8D45-FCBA752F98DE}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +20,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91504E34-AAEC-4500-9DA7-9B6844A50813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91504E34-AAEC-4500-9DA7-9B6844A50813}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91504E34-AAEC-4500-9DA7-9B6844A50813}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91504E34-AAEC-4500-9DA7-9B6844A50813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC9EE1E5-75CA-4D87-BE62-3334BBA20D5F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{432A4A47-B3B7-4820-9006-4155BC4C2FD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432A4A47-B3B7-4820-9006-4155BC4C2FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432A4A47-B3B7-4820-9006-4155BC4C2FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432A4A47-B3B7-4820-9006-4155BC4C2FD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895BAC62-AE6B-4D05-A5B9-A98B52CBA223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895BAC62-AE6B-4D05-A5B9-A98B52CBA223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895BAC62-AE6B-4D05-A5B9-A98B52CBA223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895BAC62-AE6B-4D05-A5B9-A98B52CBA223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
