@@ -4,6 +4,7 @@ trigger:
     include:
     - azure-pipelines-console-master.yml
     exclude:
+    - azure-pipelines-maui-master.yml
     - YoutubeMp3Downloader.MAUI/*
   branches:
     include:
@@ -25,8 +26,8 @@ steps:
     inputs:
         command: restore
         projects: |
-         **/Console.csproj
-         **/Services.csproj
+         **/*Console.csproj
+         **/*Services.csproj
 
   - task: DotNetCoreCLI@2
     displayName: "dotnet build"
