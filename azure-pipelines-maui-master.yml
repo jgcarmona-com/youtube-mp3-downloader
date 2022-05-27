@@ -45,6 +45,8 @@ steps:
         workingDirectory: YoutubeMp3Downloader.Console
         command: publish
         arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+        publishWebProjects: false
+    enabled: true
 
     - task: PublishBuildArtifacts@1
       displayName: "Publish MAUI Artifact"
