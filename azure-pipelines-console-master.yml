@@ -32,14 +32,11 @@ steps:
   - task: DotNetCoreCLI@2
     displayName: "dotnet build"
     inputs:
+      command: publish 
+      arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)
       workingDirectory: YoutubeMp3Downloader.Console
-
-  - task: DotNetCoreCLI@2
-    displayName: "dotnet publish"
-    inputs:
-      workingDirectory: YoutubeMp3Downloader.Console
-      command: publish
-      arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+      publishWebProjects: false
+    enabled: true
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish CONSOLE Artifact"
