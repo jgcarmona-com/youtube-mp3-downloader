@@ -19,6 +19,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '6.x'
+    
     - task: CmdLine@2
       inputs:
         script: 'dotnet workload install maui'
@@ -33,7 +38,7 @@ steps:
       displayName: "Build & Publish"
       inputs: 
         command: publish
-        arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)
+        arguments: -c Release -f net6.0-windows10.0.19041.0 --self-contained false -o $(build.ArtifactStagingDirectory)
         workingDirectory: YoutubeMp3Downloader.MAUI
         publishWebProjects: false
       enabled: true
