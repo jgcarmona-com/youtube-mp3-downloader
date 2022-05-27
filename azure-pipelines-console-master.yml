@@ -23,7 +23,7 @@ steps:
     inputs:
       feedsToUse: "select"
       feedRestore: "/"
-      projects: "**/*.csproj"
+      projects: "**/*.csproj, !*MAUI.xml"
       includeNuGetOrg: true
 
   - task: DotNetCoreCLI@2
