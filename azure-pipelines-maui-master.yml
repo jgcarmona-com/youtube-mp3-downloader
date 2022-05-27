@@ -14,7 +14,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  maui-project: '**/YoutubeMp3Downloader.MAUI.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -29,20 +29,9 @@ steps:
       inputs:
         restoreSolution: '$(solution)'
 
-    - task: VSBuild@1
-      inputs:
-        solution: '$(solution)'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-
-    - task: VSTest@2
-      inputs:
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-
     - task: DotNetCoreCLI@2
       inputs: 
-        workingDirectory: YoutubeMp3Downloader.Console
+        workingDirectory: YoutubeMp3Downloader.MAUI
         command: publish
         arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
         publishWebProjects: false
