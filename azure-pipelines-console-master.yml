@@ -2,7 +2,7 @@ trigger:
   batch: true
   paths:
     include:
-    - azure-pipelines-console-master.yml
+    - azure-pipelines-console-master*
     exclude:
     - YoutubeMp3Downloader.MAUI/*
   branches:
