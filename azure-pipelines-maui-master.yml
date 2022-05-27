@@ -46,7 +46,7 @@ steps:
         command: publish
         arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
         publishWebProjects: false
-    enabled: true
+      enabled: true
 
     - task: PublishBuildArtifacts@1
       displayName: "Publish MAUI Artifact"
