@@ -32,10 +32,6 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Label
-                
-                />
-
           
         </VerticalStackLayout>
     </ScrollView>

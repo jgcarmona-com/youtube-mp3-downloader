@@ -15,6 +15,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PIPELINES", "PIPELINES", "{
 		azure-pipelines-maui-master.yml = azure-pipelines-maui-master.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MEDIA", "MEDIA", "{D818379A-2876-43CB-A227-80C013697F8E}"
+	ProjectSection(SolutionItems) = preProject
+		Media\logo.png = Media\logo.png
+		Media\logo.svg = Media\logo.svg
+		Media\logo_mp3.png = Media\logo_mp3.png
+		Media\logo_mp3.svg = Media\logo_mp3.svg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

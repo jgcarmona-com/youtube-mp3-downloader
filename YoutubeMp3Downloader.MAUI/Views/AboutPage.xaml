@@ -4,8 +4,16 @@
              x:Class="YoutubeMp3Downloader.MAUI.Views.AboutPage"
              Title="AboutPage">
     <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
+
+        <Image
+                Source="logo_mp3.png"
+                SemanticProperties.Description="This is our logo!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+        <Label Text="Welcome to Youtube MP3 Downloader"
+               Margin="30"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
+
     </StackLayout>
 </ContentPage>
