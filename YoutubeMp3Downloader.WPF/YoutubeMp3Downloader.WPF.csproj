@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Images\logo_mp3.png">
+    <Resource Include="Resources\Images\logo_mp3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
