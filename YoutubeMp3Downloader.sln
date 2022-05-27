@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PIPELINES", "PIPELINES", "{
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines-console-master.yml = azure-pipelines-console-master.yml
 		azure-pipelines-maui-master.yml = azure-pipelines-maui-master.yml
+		azure-pipelines-wpf-master.yml = azure-pipelines-wpf-master.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MEDIA", "MEDIA", "{D818379A-2876-43CB-A227-80C013697F8E}"
@@ -23,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MEDIA", "MEDIA", "{D818379A
 		Media\logo_mp3.svg = Media\logo_mp3.svg
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeMp3Downloader.WPF", "YoutubeMp3Downloader.WPF\YoutubeMp3Downloader.WPF.csproj", "{45766218-2A89-4926-BA55-649C2CC66461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YoutubeMp3Downloader.WPF", "YoutubeMp3Downloader.WPF\YoutubeMp3Downloader.WPF.csproj", "{45766218-2A89-4926-BA55-649C2CC66461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

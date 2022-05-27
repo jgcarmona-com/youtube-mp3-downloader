@@ -1,5 +1,5 @@
 trigger:
-  false
+  none
   #batch: true
   #paths:
   #  include:
