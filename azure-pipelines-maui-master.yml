@@ -26,14 +26,3 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
-- task: DotNetCoreCLI@2
-inputs: 
-    workingDirectory: YoutubeMp3Downloader.Console
-    command: publish
-    arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
-
-- task: PublishBuildArtifacts@1
-displayName: "Publish MAUI Artifact"
-inputs:
-    ArtifactName: MAUI

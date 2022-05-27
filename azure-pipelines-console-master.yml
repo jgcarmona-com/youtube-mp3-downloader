@@ -24,7 +24,7 @@ steps:
     displayName: "dotnet restore"
     inputs:
     command: restore
-    projects:   |
+    projects: |
      **/Console.csproj
      **/Services.csproj
 
