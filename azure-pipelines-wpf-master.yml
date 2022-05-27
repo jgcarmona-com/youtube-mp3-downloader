@@ -2,10 +2,10 @@ trigger:
   batch: true
   paths:
     include:
-    - azure-pipelines-wpf-master.yml
+    - '*'
     exclude:
-    - azure-pipelines-maui-master.yml
-    - YoutubeMp3Downloader.MAUI/*
+    - 'azure-pipelines-maui-master.yml'
+    - 'YoutubeMp3Downloader.MAUI/*'
   branches:
     include:
       - 'master'
