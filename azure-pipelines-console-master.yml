@@ -1,0 +1,44 @@
+trigger:
+  batch: true
+  paths:
+    exclude:
+    - YoutubeMp3Downloader.MAUI/*
+  branches:
+    include:
+      - 'master'
+
+name: $(Date:yyyy-MM-dd)$(Rev:.r)
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.Console.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet restore"
+    inputs:
+      feedsToUse: "select"
+      feedRestore: "/"
+      projects: "**/*.csproj"
+      includeNuGetOrg: true
+
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet build"
+    inputs:
+      workingDirectory: YoutubeMp3Downloader.Console
+
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet publish"
+    inputs:
+      workingDirectory: YoutubeMp3Downloader.Console
+      command: publish
+      arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish CONSOLE Artifact"
+    inputs:
+      ArtifactName: CONSOLE

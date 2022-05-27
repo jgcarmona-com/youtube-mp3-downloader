@@ -1,0 +1,39 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+
+- task: CmdLine@2
+  inputs:
+    script: 'dotnet workload install maui'
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+inputs: 
+    workingDirectory: YoutubeMp3Downloader.Console
+    command: publish
+    arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+
+- task: PublishBuildArtifacts@1
+displayName: "Publish MAUI Artifact"
+inputs:
+    ArtifactName: MAUI
