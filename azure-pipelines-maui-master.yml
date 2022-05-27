@@ -1,5 +1,14 @@
 trigger:
-- main
+  batch: true
+  paths:
+    include:
+    - azure-pipelines-maui-master.yml
+    exclude:
+    - azure-pipelines-console-master.yml
+    - YoutubeMp3Downloader.Console/*
+  branches:
+    include:
+      - 'master'
 
 pool:
   vmImage: 'windows-latest'
@@ -26,3 +35,19 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+inputs: 
+    workingDirectory: YoutubeMp3Downloader.Console
+    command: publish
+    arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+
+- task: PublishBuildArtifacts@1
+displayName: "Publish MAUI Artifact"
+inputs:
+    ArtifactName: MAUI
