@@ -5,10 +5,30 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo_nbL_2.ico</ApplicationIcon>
+    <Authors>Juan G. Carmona</Authors>
+    <Company>JGCarmona Consulting S.L.</Company>
+    <Product>Youtube MP3 Downloader - Windows Desktop</Product>
+    <PackageIcon>logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/jgcarmona-com/youtube-mp3-downloader</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>0.0.2</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\Images\logo_mp3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="logo_nbL_2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Media\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +40,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="NetSparkleUpdater.UI.WPF" Version="2.1.0-preview20220509001" />
   </ItemGroup>
 
   <ItemGroup>

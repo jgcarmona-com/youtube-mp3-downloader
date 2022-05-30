@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using YoutubeMp3Downloader.WPF.ViewModel;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace YoutubeMp3Downloader.WPF
