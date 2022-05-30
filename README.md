@@ -19,3 +19,6 @@ A Simple Youtube MP3 Downloader Console Application made with NET 6
 
 It is necessary to have NET 6 runtime. you can find it here:
 https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime
+
+#Contributing
+Contributions are ALWAYS welcome! If you see a new feature you'd like to add, please open an issue to talk about it first, then open a PR for that implementation. If there's a bug you find, please open a PR with the fix or file an issue! Thank you!! 
