@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using YoutubeMp3Downloader.WPF.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace YoutubeMp3Downloader.WPF
 {
