@@ -49,6 +49,9 @@ steps:
     inputs:
       ArtifactName: WPF
 
+      
+  - script: sudo npm install -g appcenter-cli
+  - script: appcenter login --token {variables.AppCenterToken}
   - task: AppCenterDistribute@3
     displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
