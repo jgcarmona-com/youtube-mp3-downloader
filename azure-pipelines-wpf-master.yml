@@ -16,21 +16,9 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  #secrets
   - group: WPF-PRO
-    console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.WPF.csproj'
-    buildPlatform: 'Any CPU'
-    buildConfiguration: 'Release'
 
 steps:
-  - task: DotNetCoreCLI@2
-    displayName: "dotnet restore"
-    inputs:
-        command: restore
-        projects: |
-         **/*WPF.csproj
-         **/*Services.csproj
-
   # Update appsettings.json via FileTransform task.
   - task: FileTransform@1
     displayName: 'File transformation: appsettings.json'
@@ -38,6 +26,14 @@ steps:
       folderPath: YoutubeMp3Downloader.WPF
       targetFiles: '**/appsettings.json'
       fileType: json
+
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet restore"
+    inputs:
+        command: restore
+        projects: |
+         **/*WPF.csproj
+         **/*Services.csproj
 
   - task: DotNetCoreCLI@2
     displayName: "Build & Publish"
