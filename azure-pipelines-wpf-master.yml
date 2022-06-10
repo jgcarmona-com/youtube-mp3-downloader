@@ -48,3 +48,14 @@ steps:
     displayName: "Publish CONSOLE Artifact"
     inputs:
       ArtifactName: WPF
+
+  - task: AppCenterDistribute@3
+    displayName: 'Deploy LICENSE to Visual Studio App Center'
+    inputs:
+        serverEndpoint: YoutubeMp3DownloaderConnectionName
+        appSlug: username/appidentifier
+        appFile: LICENSE
+        buildVersion: 1
+        symbolsIncludeParentDirectory: false
+        releaseNotesInput: 1
+        isSilent: false
