@@ -8,7 +8,7 @@ trigger:
     - 'YoutubeMp3Downloader.MAUI/*'
   branches:
     include:
-      - 'master'
+      - 'main'
 
 name: $(Date:yyyy-MM-dd)$(Rev:.r)
 
