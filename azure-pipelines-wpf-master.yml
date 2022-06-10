@@ -16,7 +16,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  - group: WPF-PRO
+  - group: WPF-PROD
 
 steps:
   # Update appsettings.json via FileTransform task.
