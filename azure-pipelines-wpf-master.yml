@@ -17,10 +17,10 @@ pool:
 
 variables:
   #secrets
-  group: WPF-PRO
-  console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.WPF.csproj'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  - group: WPF-PRO
+    console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.WPF.csproj'
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
 
 steps:
   - task: DotNetCoreCLI@2
