@@ -16,6 +16,8 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  #secrets
+  group: WPF-PRO
   console-project: 'YoutubeMp3Downloader.Console\YoutubeMp3Downloader.WPF.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'

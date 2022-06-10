@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "YoutubeMp3Downloader.WPF": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

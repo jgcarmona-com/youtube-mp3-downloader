@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using YoutubeMp3Downloader.Services;
 
 namespace YoutubeMp3Downloader.WPF
 {
@@ -18,25 +21,41 @@ namespace YoutubeMp3Downloader.WPF
     /// </summary>
     public partial class App : Application
     {
-        public App()
+
+        public IServiceProvider ServiceProvider { get; private set; }
+        public IConfiguration Configuration { get; private set; }
+
+        protected override void OnStartup(StartupEventArgs e)
         {
-            Services = ConfigureServices();
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+               .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true);
+
+
+            Configuration = builder.Build();
+            var appCenterSecret = Configuration["AppCenterSecret"];
+            Console.WriteLine($"AppCenter Secret: {appCenterSecret}");
+            AppCenter.Start(appCenterSecret, typeof(Analytics), typeof(Crashes));
+
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+
+            ServiceProvider = serviceCollection.BuildServiceProvider();
         }
 
-        private static IServiceProvider ConfigureServices()
-        {
-            var services = new ServiceCollection();
 
+        private void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<MainViewModel>();
-
-            return services.BuildServiceProvider();
+            services.AddSingleton<IYoutubeToMp3Service,YoutubeToMp3Service>();
         }
+
 
         public new static App Current => (App)Application.Current;
 
-        public IServiceProvider Services { get; }
 
-
-        public MainViewModel MainVM => Services.GetService<MainViewModel>();
+        public MainViewModel MainVM => ServiceProvider.GetService<MainViewModel>();
     }
 }

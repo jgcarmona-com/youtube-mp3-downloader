@@ -74,6 +74,8 @@
             </ScrollViewer>
         </Grid>
         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="By: Juan G. Carmona" HorizontalAlignment="Right" Foreground="White" Margin="0 0 30 0" />
+        <Label Grid.Row="2" Grid.Column="0" Content="{Binding Version}" HorizontalAlignment="Right" Foreground="White" Margin="0 0 30 0" />
+
 
     </Grid>
 </Window>

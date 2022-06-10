@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,19 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
     public class MainViewModel : ObservableObject
     {
 
-        private YoutubeToMp3Service _service;
+        private IYoutubeToMp3Service _service;
+        private IConfiguration _configuration;
         private StringWriterExt _writer;
 
-        public MainViewModel()
+        public MainViewModel(IYoutubeToMp3Service youtubeToMp3Service, IConfiguration configuration)
         {
+            _service = youtubeToMp3Service;
+            _configuration = configuration;
+
             Url = "";
             ConsoleOutput = "";
-            _service = new YoutubeToMp3Service();
+            Version = _configuration["AppVersion"];
+
             DownloadMp3Command = new RelayCommand(DownloadMp3);
 
             _writer = new StringWriterExt(true); // true = AutoFlush
@@ -31,6 +37,7 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
 
         public string Url { get; set; }
         public string ConsoleOutput { get; set; }
+        public string Version { get; set; }
 
         public IRelayCommand DownloadMp3Command { get; }
 

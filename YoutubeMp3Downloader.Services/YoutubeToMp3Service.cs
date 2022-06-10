@@ -4,7 +4,7 @@ using VideoLibrary;
 
 namespace YoutubeMp3Downloader.Services;
 
-public class YoutubeToMp3Service
+public class YoutubeToMp3Service : IYoutubeToMp3Service
 {
 
     public void DownloadMp3ByUrl(string url)
