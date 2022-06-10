@@ -31,6 +31,14 @@ steps:
          **/*WPF.csproj
          **/*Services.csproj
 
+  # Update appsettings.json via FileTransform task.
+  - task: FileTransform@1
+    displayName: 'File transformation: appsettings.json'
+    inputs:
+      folderPath: YoutubeMp3Downloader.WPF
+      targetFiles: '**/appsettings.json'
+      fileType: json
+
   - task: DotNetCoreCLI@2
     displayName: "Build & Publish"
     inputs:
