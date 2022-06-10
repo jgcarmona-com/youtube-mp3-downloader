@@ -45,15 +45,15 @@ steps:
     enabled: true
 
   - task: PublishBuildArtifacts@1
-    displayName: "Publish CONSOLE Artifact"
+    displayName: "Publish WPF Artifact"
     inputs:
       ArtifactName: WPF
 
   - task: AppCenterDistribute@3
-    displayName: 'Deploy LICENSE to Visual Studio App Center'
+    displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
         serverEndpoint: YoutubeMp3DownloaderConnectionName
-        appSlug: username/appidentifier
+        appSlug: jgcarmona/Youtube-Mp3-Downloader-Windows
         appFile: LICENSE
         buildVersion: 1
         symbolsIncludeParentDirectory: false
