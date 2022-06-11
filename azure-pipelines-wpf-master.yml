@@ -26,6 +26,13 @@ steps:
       azureSubscription: $(AzureSubscription)
       AppConfigurationEndpoint: $(AppConfigurationEndpoint)
 
+  - task: FileTransform@1
+    displayName: 'File transformation: App.config'
+    inputs:
+      folderPath: YoutubeMp3Downloader.WPF
+      targetFiles: '**/ App.config'
+      fileType: xml
+
   - task: DotNetCoreCLI@2
     displayName: "dotnet restore"
     inputs:
