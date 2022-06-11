@@ -57,7 +57,7 @@ steps:
       filename: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\VSI\DisableOutOfProcBuild\DisableOutOfProcBuild.exe"'
       workingFolder: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\VSI\DisableOutOfProcBuild"'
 
-  - script: '"$(devCmd)" $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.sln /Build "Release" /Project $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\YoutubeMp3Downloader.WPF.Setup.vdproj'
+  - script: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.com" $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.sln /Build "Release" /Project $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\YoutubeMp3Downloader.WPF.Setup.vdproj'
     displayName: Build Installer
 
 
