@@ -23,8 +23,8 @@ steps:
   - task: AzureAppConfiguration.azure-app-configuration-task.custom-build-release-task.AzureAppConfiguration@5
     displayName: 'Azure App Configuration'
     inputs:
-      azureSubscription: ${AzureSubscription}
-      AppConfigurationEndpoint: ${AppConfigurationEndpoint}
+      azureSubscription: $(AzureSubscription)
+      AppConfigurationEndpoint: $(AppConfigurationEndpoint)
 
   - task: DotNetCoreCLI@2
     displayName: "dotnet restore"
@@ -53,7 +53,7 @@ steps:
     displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
         serverEndpoint: 'YoutubeMp3DownloaderApp'
-        appSlug: ${AppSlug}
+        appSlug: $(AppSlug)
         appFile: $(build.ArtifactStagingDirectory)
         buildVersion: 1
         symbolsIncludeParentDirectory: false
