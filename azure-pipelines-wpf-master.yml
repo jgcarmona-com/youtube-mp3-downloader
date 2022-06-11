@@ -20,12 +20,11 @@ variables:
 
 steps:
   # Update appsettings.json via FileTransform task.
-  - task: FileTransform@1
-    displayName: 'File transformation: appsettings.json'
+  - task: AzureAppConfiguration.azure-app-configuration-task.custom-build-release-task.AzureAppConfiguration@5
+    displayName: 'Azure App Configuration'
     inputs:
-      folderPath: YoutubeMp3Downloader.WPF
-      targetFiles: '**/appsettings.json'
-      fileType: json
+      azureSubscription: {AzureSubscriotion}
+      AppConfigurationEndpoint: {AppConfigurationEndpoint}
 
   - task: DotNetCoreCLI@2
     displayName: "dotnet restore"
@@ -54,7 +53,7 @@ steps:
     displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
         serverEndpoint: 'YoutubeMp3DownloaderApp'
-        appSlug: jgcarmona/Youtube-Mp3-Downloader-Windows
+        appSlug: {AppSlug}
         appFile: $(build.ArtifactStagingDirectory)
         buildVersion: 1
         symbolsIncludeParentDirectory: false

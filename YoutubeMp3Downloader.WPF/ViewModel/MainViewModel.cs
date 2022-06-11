@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,13 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
         private IConfiguration _configuration;
         private StringWriterExt _writer;
 
-        public MainViewModel(IYoutubeToMp3Service youtubeToMp3Service, IConfiguration configuration)
+        public MainViewModel(IYoutubeToMp3Service youtubeToMp3Service)
         {
             _service = youtubeToMp3Service;
-            _configuration = configuration;
 
             Url = "";
             ConsoleOutput = "";
-            Version = _configuration["AppVersion"];
+            Version = ConfigurationManager.AppSettings["AppVersion"];
 
             DownloadMp3Command = new RelayCommand(DownloadMp3);
 

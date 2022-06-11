@@ -23,18 +23,11 @@ namespace YoutubeMp3Downloader.WPF
     {
 
         public IServiceProvider ServiceProvider { get; private set; }
-        public IConfiguration Configuration { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            var builder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-               .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true);
 
-
-            Configuration = builder.Build();
-            var appCenterSecret = Configuration["AppCenterSecret"];
+            var appCenterSecret = ConfigurationManager.AppSettings["AppCenterSecret"];
             Console.WriteLine($"AppCenter Secret: {appCenterSecret}");
             AppCenter.Start(appCenterSecret, typeof(Analytics), typeof(Crashes));
 
@@ -47,7 +40,6 @@ namespace YoutubeMp3Downloader.WPF
 
         private void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<IYoutubeToMp3Service,YoutubeToMp3Service>();
         }
