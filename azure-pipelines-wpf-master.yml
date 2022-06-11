@@ -23,7 +23,7 @@ steps:
   - task: AzureAppConfiguration.azure-app-configuration-task.custom-build-release-task.AzureAppConfiguration@5
     displayName: 'Azure App Configuration'
     inputs:
-      azureSubscription: ${AzureSubscriotion}
+      azureSubscription: ${AzureSubscription}
       AppConfigurationEndpoint: ${AppConfigurationEndpoint}
 
   - task: DotNetCoreCLI@2
