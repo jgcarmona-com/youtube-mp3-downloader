@@ -1,5 +1,17 @@
 trigger:
-- master
+  batch: true
+  paths:
+    include:
+    - '*'
+    exclude:
+    - 'azure-pipelines-maui-master.yml'
+    - 'azure-pipelines-wpf-master.yml'
+    - 'YoutubeMp3Downloader.MAUI/*'
+    - 'YoutubeMp3Downloader.Console/*'
+    - 'YoutubeMp3Downloader.WPF/*'
+  branches:
+    include:
+      - 'main'
 
 pool:
   vmImage: 'windows-2022'
