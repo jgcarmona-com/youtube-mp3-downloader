@@ -46,7 +46,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\YoutubeMp3Downloader.Uwp\Package.appxmanifest
+      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\YoutubeMp3Downloader.UWP\Package.appxmanifest
       $xmlDoc.Package.Identity.Name="JGCarmona.YoutubeMp3Downloader"
       $xmlDoc.Package.Properties.DisplayName="Youtube Mp3 Downloader"
       $xmlDoc.Package.Applications.Application.VisualElements.DisplayName="Youtube Mp3 Downloader"
@@ -57,10 +57,10 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw
+      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\YoutubeMp3Downloader.Uwp\appsettings.resw
       $xmlDoc.SelectSingleNode("//root/data[@name='AppVersion']").Value = "$(AppVersion)"
       $xmlDoc.SelectSingleNode("//root/data[@name='AppCenterSecret']").Value = "$(AppCenterSecret)"
-      $xmlDoc.Save('$(Build.SourcesDirectory)\src\YoutubeMp3Downloader.Uwp\appsettings.resw')
+      $xmlDoc.Save('$(Build.SourcesDirectory)\YoutubeMp3Downloader.Uwp\appsettings.resw')
     failOnStderr: true
 
 - task: NuGetToolInstaller@1
