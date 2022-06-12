@@ -64,6 +64,7 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish WPF Artifact"
     inputs:
+      pathToPublish: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release
       ArtifactName: WPF
 
 
