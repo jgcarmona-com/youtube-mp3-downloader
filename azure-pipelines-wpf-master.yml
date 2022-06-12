@@ -60,23 +60,24 @@ steps:
   - script: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.com" $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.sln /Build "Release" /Project $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\YoutubeMp3Downloader.WPF.Setup.vdproj'
     displayName: Build Installer
 
+  - task: CmdLine@2
+    inputs:
+      script: ren $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+       $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.msi
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish WPF Artifact"
     inputs:
-      pathToPublish: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release
-      ArtifactName: WPF
-
-
-
+      pathToPublish: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+      ArtifactName: YoutubeMp3Downloader Installer
       
-  #- task: AppCenterDistribute@3
-  #  displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
-  #  inputs:
-  #      serverEndpoint: 'YoutubeMp3DownloaderApp'
-  #      appSlug: $(AppSlug)
-  #      appFile: $(build.ArtifactStagingDirectory)
-  #      buildVersion: 1
-  #      symbolsIncludeParentDirectory: false
-  #      releaseNotesInput: 1
-  #      isSilent: false
+  - task: AppCenterDistribute@3
+    displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
+    inputs:
+        serverEndpoint: 'YoutubeMp3DownloaderApp'
+        appSlug: $(AppSlug)
+        appFile: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+        buildVersion: 1
+        symbolsIncludeParentDirectory: false
+        releaseNotesInput: 1
+        isSilent: false
