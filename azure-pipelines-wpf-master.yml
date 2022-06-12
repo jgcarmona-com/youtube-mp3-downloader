@@ -5,7 +5,9 @@ trigger:
     - '*'
     exclude:
     - 'azure-pipelines-maui-master.yml'
+    - 'azure-pipelines-uwp-master.yml'
     - 'YoutubeMp3Downloader.MAUI/*'
+    - 'YoutubeMp3Downloader.UWP/*'
   branches:
     include:
       - 'main'
