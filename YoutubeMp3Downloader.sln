@@ -13,7 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PIPELINES", "PIPELINES", "{
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines-console-master.yml = azure-pipelines-console-master.yml
 		azure-pipelines-maui-master.yml = azure-pipelines-maui-master.yml
-		azure-pipelines-uwp-master.yml = azure-pipelines-uwp-master.yml
 		azure-pipelines-wpf-master.yml = azure-pipelines-wpf-master.yml
 	EndProjectSection
 EndProject
@@ -33,8 +32,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "YoutubeMp3Downloader.WPF.Setup", "YoutubeMp3Downloader.WPF.Setup\YoutubeMp3Downloader.WPF.Setup.vdproj", "{435E3E39-61EF-44BF-8B37-624218A9CEAF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeMp3Downloader.UWP", "YoutubeMp3Downloader.UWP\YoutubeMp3Downloader.UWP.csproj", "{8B95671E-A19B-495E-B208-1FDA0815DFBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,36 +139,6 @@ Global
 		{435E3E39-61EF-44BF-8B37-624218A9CEAF}.Release|x64.Build.0 = Release
 		{435E3E39-61EF-44BF-8B37-624218A9CEAF}.Release|x86.ActiveCfg = Release
 		{435E3E39-61EF-44BF-8B37-624218A9CEAF}.Release|x86.Build.0 = Release
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|Any CPU.Build.0 = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|Any CPU.Deploy.0 = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM.ActiveCfg = Debug|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM.Build.0 = Debug|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM.Deploy.0 = Debug|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM64.Build.0 = Debug|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x64.ActiveCfg = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x64.Build.0 = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x64.Deploy.0 = Debug|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x86.ActiveCfg = Debug|x86
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x86.Build.0 = Debug|x86
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Debug|x86.Deploy.0 = Debug|x86
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|Any CPU.ActiveCfg = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|Any CPU.Build.0 = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|Any CPU.Deploy.0 = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM.ActiveCfg = Release|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM.Build.0 = Release|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM.Deploy.0 = Release|ARM
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM64.ActiveCfg = Release|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM64.Build.0 = Release|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|ARM64.Deploy.0 = Release|ARM64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x64.ActiveCfg = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x64.Build.0 = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x64.Deploy.0 = Release|x64
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x86.ActiveCfg = Release|x86
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x86.Build.0 = Release|x86
-		{8B95671E-A19B-495E-B208-1FDA0815DFBB}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
