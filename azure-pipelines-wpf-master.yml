@@ -68,13 +68,37 @@ steps:
       pathToPublish: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
       ArtifactName: YoutubeMp3Downloader Installer
       
-  - task: AppCenterDistribute@3
-    displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
+  #- task: AppCenterDistribute@3
+  #  displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
+  #  inputs:
+  #      serverEndpoint: 'YoutubeMp3DownloaderApp'
+  #      appSlug: $(AppSlug)
+  #      appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+  #      buildVersion: 1
+  #      symbolsIncludeParentDirectory: false
+  #      releaseNotesInput: 1
+  #      isSilent: false
+
+# Azure file copy
+# Copy files to Azure Blob Storage or virtual machines
+  - task: AzureFileCopy@4
     inputs:
-        serverEndpoint: 'YoutubeMp3DownloaderApp'
-        appSlug: $(AppSlug)
-        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
-        buildVersion: 1
-        symbolsIncludeParentDirectory: false
-        releaseNotesInput: 1
-        isSilent: false
+      sourcePath:  $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+      azureSubscription:  $(AzureSubscription)
+      destination: azureBlob
+      storage: 
+      containerName: $(ContainerName)
+      #blobPrefix: # Optional
+      #resourceGroup: # Required when destination == AzureVMs
+      #resourceFilteringMethod: 'machineNames' # Optional. Options: machineNames, tags
+      #machineNames: # Optional
+      #vmsAdminUserName: # Required when destination == AzureVMs
+      #vmsAdminPassword: # Required when destination == AzureVMs
+      #targetPath: # Required when destination == AzureVMs
+      #additionalArgumentsForBlobCopy: # Optional
+      #additionalArgumentsForVMCopy: # Optional
+      #enableCopyPrerequisites: false # Optional
+      #copyFilesInParallel: true # Optional
+      #cleanTargetBeforeCopy: false # Optional
+      #skipCACheck: true # Optional
+      #sasTokenTimeOutInMinutes: # Optional
