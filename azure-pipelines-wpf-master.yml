@@ -65,16 +65,16 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish WPF Artifact"
     inputs:
-      pathToPublish: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+      pathToPublish: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release
       ArtifactName: YoutubeMp3Downloader Installer
       
-  - task: AppCenterDistribute@3
-    displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
-    inputs:
-        serverEndpoint: 'YoutubeMp3DownloaderApp'
-        appSlug: $(AppSlug)
-        appFile: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
-        buildVersion: 1
-        symbolsIncludeParentDirectory: false
-        releaseNotesInput: 1
-        isSilent: false
+  #- task: AppCenterDistribute@3
+  #  displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
+  #  inputs:
+  #      serverEndpoint: 'YoutubeMp3DownloaderApp'
+  #      appSlug: $(AppSlug)
+  #      appFile: $(build.artifactstagingdirectory)\YoutubeMp3Downloader.WPF.Setup\Release
+  #      buildVersion: 1
+  #      symbolsIncludeParentDirectory: false
+  #      releaseNotesInput: 1
+  #      isSilent: false

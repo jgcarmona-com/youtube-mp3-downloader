@@ -25,6 +25,7 @@ namespace YoutubeMp3Downloader.UWP
         public MainPage()
         {
             this.InitializeComponent();
+            DataContext = App.Current.MainVM;
         }
     }
 }
