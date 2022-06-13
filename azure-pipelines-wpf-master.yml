@@ -63,7 +63,7 @@ steps:
     displayName: Build Installer
 
   - task: PublishBuildArtifacts@1
-    displayName: "Publish WPF Artifact"
+    displayName: "Publish Installer"
     inputs:
       pathToPublish: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
       ArtifactName: YoutubeMp3Downloader Installer
@@ -86,7 +86,7 @@ steps:
       sourcePath:  $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
       azureSubscription:  $(AzureSubscription)
       destination: azureBlob
-      storage: 
+      storage: $(StorageAccountName)
       containerName: $(ContainerName)
       #blobPrefix: # Optional
       #resourceGroup: # Required when destination == AzureVMs
