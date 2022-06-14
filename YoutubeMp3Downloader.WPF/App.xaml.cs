@@ -21,7 +21,6 @@ namespace YoutubeMp3Downloader.WPF
     /// </summary>
     public partial class App : Application
     {
-
         public IServiceProvider ServiceProvider { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -37,16 +36,13 @@ namespace YoutubeMp3Downloader.WPF
             ServiceProvider = serviceCollection.BuildServiceProvider();
         }
 
-
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<IYoutubeToMp3Service,YoutubeToMp3Service>();
         }
 
-
         public new static App Current => (App)Application.Current;
-
 
         public MainViewModel MainVM => ServiceProvider.GetService<MainViewModel>();
     }

@@ -101,6 +101,3 @@ steps:
       #skipCACheck: true # Optional
       #sasTokenTimeOutInMinutes: # Optional
       name: AzureFileCopy
-  - script: | 
-      echo $(AzureFileCopy.StorageContainerUri)
-      echo $(AzureFileCopy.StorageContainerSasToken)
