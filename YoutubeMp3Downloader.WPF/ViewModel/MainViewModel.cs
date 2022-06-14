@@ -25,7 +25,7 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
 
             Url = "";
             ConsoleOutput = "";
-            Version = ConfigurationManager.AppSettings["AppVersion"];
+            Version = System.Configuration.ConfigurationManager.AppSettings["AppVersion"];
 
             DownloadMp3Command = new RelayCommand(DownloadMp3);
 

@@ -27,7 +27,7 @@ namespace YoutubeMp3Downloader.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            var appCenterSecret = ConfigurationManager.AppSettings["AppCenterSecret"];
+            var appCenterSecret = System.Configuration.ConfigurationManager.AppSettings["AppCenterSecret"];
             Console.WriteLine($"AppCenter Secret: {appCenterSecret}");
             AppCenter.Start(appCenterSecret, typeof(Analytics), typeof(Crashes));
 
