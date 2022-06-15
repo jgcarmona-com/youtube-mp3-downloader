@@ -41,4 +41,16 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: "Publish CONSOLE Artifact"
     inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)\CONSOLE'
       ArtifactName: CONSOLE
+
+# Azure file copy
+# Copy files to Azure Blob Storage or virtual machines
+  - task: AzureFileCopy@4
+    inputs:
+      sourcePath: '$(Build.ArtifactStagingDirectory)\CONSOLE'
+      azureSubscription:  $(AzureSubscription)
+      destination: azureBlob
+      storage: $(StorageAccountName)
+      containerName: $(ContainerName)
+      name: AzureFileCopy

@@ -41,15 +41,6 @@ steps:
          **/*WPF.csproj
          **/*Services.csproj
 
-  #- task: DotNetCoreCLI@2
-  #  displayName: "Build & Publish"
-  #  inputs:
-  #    command: publish 
-  #    arguments: -r win-x64 -p:PublishSingleFile=True --self-contained false -o $(build.ArtifactStagingDirectory)
-  #    workingDirectory: YoutubeMp3Downloader.WPF
-  #    publishWebProjects: false
-  #  enabled: true
-
 # https://github.com/it3xl/MSBuild-DevEnv-Build-Server-Workarounds/issues/1#issuecomment-525435637
   - task: BatchScript@1
     displayName: Enable .vdproj Builds
@@ -65,17 +56,6 @@ steps:
     inputs:
       pathToPublish: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
       ArtifactName: YoutubeMp3Downloader Installer
-      
-  #- task: AppCenterDistribute@3
-  #  displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
-  #  inputs:
-  #      serverEndpoint: 'YoutubeMp3DownloaderApp'
-  #      appSlug: $(AppSlug)
-  #      appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
-  #      buildVersion: 1
-  #      symbolsIncludeParentDirectory: false
-  #      releaseNotesInput: 1
-  #      isSilent: false
 
 # Azure file copy
 # Copy files to Azure Blob Storage or virtual machines
@@ -86,18 +66,4 @@ steps:
       destination: azureBlob
       storage: $(StorageAccountName)
       containerName: $(ContainerName)
-      #blobPrefix: # Optional
-      #resourceGroup: # Required when destination == AzureVMs
-      #resourceFilteringMethod: 'machineNames' # Optional. Options: machineNames, tags
-      #machineNames: # Optional
-      #vmsAdminUserName: # Required when destination == AzureVMs
-      #vmsAdminPassword: # Required when destination == AzureVMs
-      #targetPath: # Required when destination == AzureVMs
-      #additionalArgumentsForBlobCopy: # Optional
-      #additionalArgumentsForVMCopy: # Optional
-      #enableCopyPrerequisites: false # Optional
-      #copyFilesInParallel: true # Optional
-      #cleanTargetBeforeCopy: false # Optional
-      #skipCACheck: true # Optional
-      #sasTokenTimeOutInMinutes: # Optional
       name: AzureFileCopy

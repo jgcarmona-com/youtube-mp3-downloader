@@ -13,8 +13,11 @@
     <RepositoryUrl>https://github.com/jgcarmona-com/youtube-mp3-downloader</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <AssemblyVersion>0.0.2</AssemblyVersion>
+    <AssemblyVersion>0.0.4</AssemblyVersion>
     <UserSecretsId>6d69d6dc-0c04-491d-b8e5-d7e6c28d7612</UserSecretsId>
+    <Description>Download and convert to MP3 any Youtube Video</Description>
+    <PackageProjectUrl>https://github.com/jgcarmona-com/youtube-mp3-downloader</PackageProjectUrl>
+    <EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
