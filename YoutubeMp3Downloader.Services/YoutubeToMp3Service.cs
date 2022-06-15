@@ -1,4 +1,5 @@
-﻿using VideoLibrary;
+﻿using Microsoft.AppCenter.Crashes;
+using VideoLibrary;
 using Xabe.FFmpeg;
 using Xabe.FFmpeg.Downloader;
 
@@ -37,10 +38,10 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
             Task.Run(async () =>
             {
                 var conversion = await FFmpeg.Conversions.FromSnippet.ExtractAudio(inputFileName, mp3FileName);
-                Console.WriteLine("Converting to mp3...");
-                conversion.OnProgress += async (sender, args) =>
+                Console.Write("Converting to mp3...");
+                conversion.OnProgress += (sender, args) =>
                 {
-                    await Console.Out.WriteAsync($"\r[{args.Duration}/{args.TotalLength}][{args.Percent}%]");
+                    Console.Write($"\r[{args.Duration}/{args.TotalLength}][{args.Percent}%]");
                 };
                 await conversion.SetAudioBitrate(320000).SetOutputFormat(Format.mp3).Start();
                 Console.WriteLine();
@@ -49,7 +50,7 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
             }).Wait();
             Console.WriteLine("Deleting Video file");
             File.Delete(inputFileName);
-            Console.WriteLine($"[DONE!] => {mp3FileName}");
+            Console.WriteLine($":) DOWNLOADED >>>>\r\n\t {mp3FileName}");
             Console.WriteLine();
         }
         catch (Exception ex)
@@ -61,6 +62,7 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
                 Console.WriteLine("It looks like FFMPEG is not installed in your system... We are installing it for you");
                 InstallFfmpeg();
             }
+            Crashes.TrackError(ex);
         }
     }
 

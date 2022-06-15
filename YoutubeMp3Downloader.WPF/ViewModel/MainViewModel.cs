@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -45,6 +46,7 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
         {
             await Task.Run(() =>
             {
+                Analytics.TrackEvent("Download Mp3 From URL", new Dictionary<string, string> {{ "Url", Url }});
                 _service.DownloadMp3ByUrl(Url);
             });
             Url = "";

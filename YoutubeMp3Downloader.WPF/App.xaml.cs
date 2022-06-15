@@ -25,11 +25,16 @@ namespace YoutubeMp3Downloader.WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-
             var appCenterSecret = System.Configuration.ConfigurationManager.AppSettings["AppCenterSecret"];
             Console.WriteLine($"AppCenter Secret: {appCenterSecret}");
-            AppCenter.Start(appCenterSecret, typeof(Analytics), typeof(Crashes));
+            AppCenter.Configure(appCenterSecret);
+            if (AppCenter.Configured)
+            {
+                AppCenter.Start(typeof(Analytics));
+                AppCenter.Start(typeof(Crashes));
+            }
 
+            Analytics.TrackEvent("App Launched");
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
 
@@ -39,7 +44,7 @@ namespace YoutubeMp3Downloader.WPF
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<IYoutubeToMp3Service,YoutubeToMp3Service>();
+            services.AddSingleton<IYoutubeToMp3Service, YoutubeToMp3Service>();
         }
 
         public new static App Current => (App)Application.Current;
