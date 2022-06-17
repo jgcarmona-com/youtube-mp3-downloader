@@ -5,7 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>logo_nbL_2.ico</ApplicationIcon>
+    <ApplicationIcon>logo_nbL_1.ico</ApplicationIcon>
     <Authors>Juan G. Carmona</Authors>
     <Company>JGCarmona Consulting S.L.</Company>
     <Product>Youtube MP3 Downloader - Windows Desktop</Product>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="logo_nbL_2.ico" />
+    <Content Include="logo_nbL_1.ico" />
   </ItemGroup>
 
   <ItemGroup>

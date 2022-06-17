@@ -7,12 +7,12 @@ namespace YoutubeMp3Downloader.Services;
 
 public class YoutubeToMp3Service : IYoutubeToMp3Service
 {
+    private const string path = "C:/YoutubeMp3Downloader";
 
-    public async void DownloadMp3ByUrl(string url)
+    public void DownloadMp3ByUrl(string url)
     {
         try
         {
-            var path = "C:/YoutubeMp3Downloader";
             if (!Directory.Exists(path))
             {
                 InstallFfmpeg();
@@ -68,6 +68,6 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
 
     private void InstallFfmpeg()
     {
-        Task.Run(async () => { await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official); }).Wait();
+        Task.Run(async () => { await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, path, null); }).Wait();
     }
 }

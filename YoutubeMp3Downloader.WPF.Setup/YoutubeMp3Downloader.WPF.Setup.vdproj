@@ -25,6 +25,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_6682B3C653A94EE7A9434D356557A0F2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -127,6 +133,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6682B3C653A94EE7A9434D356557A0F2"
+            {
+            "SourcePath" = "8:..\\YoutubeMp3Downloader.WPF\\logo_nbL_1.ico"
+            "TargetName" = "8:logo_nbL_1.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_03FCB8BC734D46F29C3B97E6402E52CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -306,7 +332,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2D63290D76794C19AA955CA5785448AC"
             {
-            "Name" = "8:YoutubeMp3Downloader"
+            "Name" = "8:Youtube Mp3 Downloader"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -315,7 +341,7 @@
             "Target" = "8:_231B1DC0F8E84915BDE49DB3796226C4"
             "Folder" = "8:_0A1C646EE4AF4CF282D0D570A04DCDB7"
             "WorkingFolder" = "8:_03FCB8BC734D46F29C3B97E6402E52CD"
-            "Icon" = "8:"
+            "Icon" = "8:_6682B3C653A94EE7A9434D356557A0F2"
             "Feature" = "8:"
             }
         }

@@ -67,3 +67,14 @@ steps:
       storage: $(StorageAccountName)
       containerName: $(ContainerName)
       name: AzureFileCopy
+
+  - task: AppCenterDistribute@3
+    displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
+    inputs:
+        serverEndpoint: 'YoutubeMp3DownloaderApp'
+        appSlug: $(AppSlug)
+        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\Release\YoutubeMp3Downloader.WPF.Setup.msi
+        buildVersion: 1
+        symbolsIncludeParentDirectory: false
+        releaseNotesInput: 1
+        isSilent: false
