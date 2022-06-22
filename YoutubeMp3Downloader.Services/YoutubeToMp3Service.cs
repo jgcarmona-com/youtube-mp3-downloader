@@ -78,6 +78,7 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            Console.WriteLine("IF IT IS A PERMISSIONS ERROR, PLEASE TUN THE APP AS AN ADMISITRATOR ONCE");
             Crashes.TrackError(ex);
             throw;
         }
