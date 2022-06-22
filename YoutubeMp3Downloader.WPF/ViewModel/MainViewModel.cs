@@ -34,23 +34,30 @@ namespace YoutubeMp3Downloader.WPF.ViewModel
             _writer.Flushed += new StringWriterExt.FlushedEventHandler(WriterFlushed);
             TextWriter stdout = Console.Out;
             Console.SetOut(_writer);
+            DownloadButtonEnabled = true;
         }
 
         public string Url { get; set; }
         public string ConsoleOutput { get; set; }
         public string Version { get; set; }
 
+        public bool DownloadButtonEnabled { get; set; }
+
         public IRelayCommand DownloadMp3Command { get; }
 
         private async void DownloadMp3()
         {
+            DownloadButtonEnabled = false;
+            OnPropertyChanged("DownloadButtonEnabled");
             await Task.Run(() =>
             {
-                Analytics.TrackEvent("Download Mp3 From URL", new Dictionary<string, string> {{ "Url", Url }});
+                Analytics.TrackEvent("Download Mp3 From URL", new Dictionary<string, string> { { "Url", Url } });
                 _service.DownloadMp3ByUrl(Url);
             });
             Url = "";
             OnPropertyChanged("Url");
+            DownloadButtonEnabled = true;
+            OnPropertyChanged("DownloadButtonEnabled");
         }
 
         void WriterFlushed(object sender, EventArgs args)

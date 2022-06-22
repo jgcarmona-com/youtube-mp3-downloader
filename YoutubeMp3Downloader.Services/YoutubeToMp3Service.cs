@@ -1,4 +1,6 @@
-﻿using Microsoft.AppCenter.Crashes;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using System.Reflection;
 using VideoLibrary;
 using Xabe.FFmpeg;
 using Xabe.FFmpeg.Downloader;
@@ -8,16 +10,13 @@ namespace YoutubeMp3Downloader.Services;
 public class YoutubeToMp3Service : IYoutubeToMp3Service
 {
     private const string path = "C:/YoutubeMp3Downloader";
+    private readonly string applicationPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
 
     public void DownloadMp3ByUrl(string url)
     {
         try
         {
-            if (!Directory.Exists(path))
-            {
-                InstallFfmpeg();
-                Directory.CreateDirectory(path);
-            }
+            EnsureOutputFolder();
             Console.Write($"Downloading");
             var folder = path + "/";
             var youtube = YouTube.Default;
@@ -37,6 +36,7 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
             }
             Task.Run(async () =>
             {
+                EnsureFfmpeg().Wait();
                 var conversion = await FFmpeg.Conversions.FromSnippet.ExtractAudio(inputFileName, mp3FileName);
                 Console.Write("Converting to mp3...");
                 conversion.OnProgress += (sender, args) =>
@@ -57,17 +57,45 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
         {
             Console.WriteLine();
             Console.WriteLine(ex.Message);
-            if (ex.Message.ToLower().Contains("ffmpeg"))
-            {
-                Console.WriteLine("It looks like FFMPEG is not installed in your system... We are installing it for you");
-                InstallFfmpeg();
-            }
             Crashes.TrackError(ex);
         }
     }
 
-    private void InstallFfmpeg()
+    private async Task EnsureFfmpeg()
     {
-        Task.Run(async () => { await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, path, null); }).Wait();
+        if (!File.Exists(applicationPath + "/" + "ffmpeg.exe"))
+        {
+            Analytics.TrackEvent("DOWNLOADING FFMPEG LIBRARY");
+            Console.WriteLine("DOWNLOADING FFMPEG LIBRARY");
+            await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffmpeg.exe", "ffmpeg.exe");
+            await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffprobe.exe", "ffprobe.exe");
+            Console.WriteLine("DONE FFMPEG LIBRARY");
+        }
+    }
+
+    private void EnsureOutputFolder()
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+    }
+
+    private async Task SaveFileInAppFolder(string url, string fileName)
+    {
+
+        using var client = new HttpClient();
+        var response = await client.GetAsync(url);
+        if (response.IsSuccessStatusCode)
+        {
+            var stream = await response.Content.ReadAsStreamAsync();
+            var fileInfo = new FileInfo(applicationPath + "/" + fileName);
+            using var fileStream = fileInfo.OpenWrite();
+            await stream.CopyToAsync(fileStream);
+        }
+        else
+        {
+            throw new Exception("File not found");
+        }
     }
 }
