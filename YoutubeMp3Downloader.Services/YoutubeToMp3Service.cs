@@ -63,13 +63,23 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
 
     private async Task EnsureFfmpeg()
     {
-        if (!File.Exists(applicationPath + "/" + "ffmpeg.exe"))
+        try
         {
-            Analytics.TrackEvent("DOWNLOADING FFMPEG LIBRARY");
-            Console.WriteLine("DOWNLOADING FFMPEG LIBRARY");
-            await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffmpeg.exe", "ffmpeg.exe");
-            await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffprobe.exe", "ffprobe.exe");
-            Console.WriteLine("DONE FFMPEG LIBRARY");
+            if (!File.Exists(applicationPath + "/" + "ffmpeg.exe"))
+            {
+                Analytics.TrackEvent("DOWNLOADING FFMPEG LIBRARY");
+                Console.WriteLine("DOWNLOADING FFMPEG LIBRARY");
+                await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Full);
+                //await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffmpeg.exe", "ffmpeg.exe");
+                //await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffprobe.exe", "ffprobe.exe");
+                Console.WriteLine("DONE FFMPEG LIBRARY");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Crashes.TrackError(ex);
+            throw;
         }
     }
 
