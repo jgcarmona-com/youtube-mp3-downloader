@@ -31,6 +31,18 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_B469378E226146FCA6CDC0ACE26755C6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D8339338F9B84CC89C896E16E333151A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -137,6 +149,46 @@
             {
             "SourcePath" = "8:..\\YoutubeMp3Downloader.WPF\\logo_nbL_1.ico"
             "TargetName" = "8:logo_nbL_1.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_03FCB8BC734D46F29C3B97E6402E52CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B469378E226146FCA6CDC0ACE26755C6"
+            {
+            "SourcePath" = "8:..\\YoutubeMp3Downloader.WPF\\ffprobe.exe"
+            "TargetName" = "8:ffprobe.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_03FCB8BC734D46F29C3B97E6402E52CD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D8339338F9B84CC89C896E16E333151A"
+            {
+            "SourcePath" = "8:..\\YoutubeMp3Downloader.WPF\\ffmpeg.exe"
+            "TargetName" = "8:ffmpeg.exe"
             "Tag" = "8:"
             "Folder" = "8:_03FCB8BC734D46F29C3B97E6402E52CD"
             "Condition" = "8:"

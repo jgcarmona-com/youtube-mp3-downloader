@@ -69,7 +69,7 @@ public class YoutubeToMp3Service : IYoutubeToMp3Service
             {
                 Analytics.TrackEvent("DOWNLOADING FFMPEG LIBRARY");
                 Console.WriteLine("DOWNLOADING FFMPEG LIBRARY");
-                await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Full);
+                await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official);
                 //await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffmpeg.exe", "ffmpeg.exe");
                 //await SaveFileInAppFolder("https://jgcarmona.blob.core.windows.net/youtube-mp3-downloader/ffprobe.exe", "ffprobe.exe");
                 Console.WriteLine("DONE FFMPEG LIBRARY");
