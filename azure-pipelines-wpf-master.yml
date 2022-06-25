@@ -74,7 +74,6 @@ steps:
       destination: azureBlob
       storage: $(StorageAccountName)
       containerName: $(ContainerName)
-      blobPrefix: 'release'
       name: AzureFileCopy
 
   - task: AppCenterDistribute@3
