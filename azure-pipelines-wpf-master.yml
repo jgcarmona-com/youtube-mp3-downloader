@@ -46,7 +46,7 @@ steps:
     displayName: 'Publish YoutubeMp3Downloader.WPF'
     inputs:
       solution: YoutubeMp3Downloader.WPF/YoutubeMp3Downloader.WPF.csproj
-      msbuildArguments: '/p:DeployOnBuild=true /p:PublishProfile="$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\PublishProfiles\DeploymentProfile.pubxml"'
+      msbuildArguments: '/p:DeployOnBuild=true /p:PublishProfile="YoutubeMp3Downloader.WPF\PublishProfiles\DeploymentProfile.pubxml"'
 
 
 ## https://github.com/it3xl/MSBuild-DevEnv-Build-Server-Workarounds/issues/1#issuecomment-525435637
