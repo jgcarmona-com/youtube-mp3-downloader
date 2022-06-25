@@ -18,14 +18,24 @@
     <Description>Download and convert to MP3 any Youtube Video</Description>
     <PackageProjectUrl>https://github.com/jgcarmona-com/youtube-mp3-downloader</PackageProjectUrl>
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="publish\**" />
+    <EmbeddedResource Remove="publish\**" />
+    <None Remove="publish\**" />
+    <Page Remove="publish\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\Images\logo_mp3.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="logo_nbL_1.ico" />
+    <Content Include="logo_nbL_1.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
