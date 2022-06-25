@@ -33,13 +33,13 @@ steps:
       targetFiles: '**/App.config'
       fileType: xml
 
-  #- task: DotNetCoreCLI@2
-  #  displayName: "dotnet restore"
-  #  inputs:
-  #      command: restore
-  #      projects: |
-  #       **/*WPF.csproj
-  #       **/*Services.csproj
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet restore"
+    inputs:
+        command: restore
+        projects: |
+         **/*WPF.csproj
+         **/*Services.csproj
 
          
   - task: MSBuild@1
@@ -47,7 +47,6 @@ steps:
     inputs:
       solution: YoutubeMp3Downloader.WPF/YoutubeMp3Downloader.WPF.csproj
       msbuildArguments: '/target:publish /p:ApplicationRevision=$(applicationRevision) /p:PublishProfile="YoutubeMp3Downloader.WPF/PublishProfiles/DeploymentProfile.pubxml" /p:PublishDir="$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF.Setup\\Publish"'
-      restoreNugetPackages: true
 
 
 ## https://github.com/it3xl/MSBuild-DevEnv-Build-Server-Workarounds/issues/1#issuecomment-525435637
