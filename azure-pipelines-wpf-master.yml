@@ -46,7 +46,7 @@ steps:
     displayName: 'Publish YoutubeMp3Downloader.WPF'
     inputs:
       solution: YoutubeMp3Downloader.WPF/YoutubeMp3Downloader.WPF.csproj
-      msbuildArguments: '/target:publish /p:ApplicationRevision=$(Build.BuildNumber) /p:PublishProfile="$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF/PublishProfiles/DeploymentProfile.pubxml" /p:OutputPath="$(ArtifactStagingDirectory)\release\\"'
+      msbuildArguments: '/target:publish /p:ApplicationRevision=$(Build.BuildNumber) /p:PublishProfile="$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF/PublishProfiles/DeploymentProfile.pubxml" /p:OutputPath="$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\release\\"'
 
 
 ## https://github.com/it3xl/MSBuild-DevEnv-Build-Server-Workarounds/issues/1#issuecomment-525435637
@@ -69,7 +69,7 @@ steps:
 # Copy files to Azure Blob Storage or virtual machines
   - task: AzureFileCopy@4
     inputs:
-      sourcePath:  '$(build.ArtifactStagingDirectory)\release'
+      sourcePath:  '$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\release'
       azureSubscription:  $(AzureSubscription)
       destination: azureBlob
       storage: $(StorageAccountName)
@@ -82,7 +82,7 @@ steps:
     inputs:
         serverEndpoint: 'YoutubeMp3DownloaderApp'
         appSlug: $(AppSlug)
-        appFile: $(build.ArtifactStagingDirectory)\release\\setup.exe
+        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\release\\setup.exe
         buildVersion: 1
         symbolsIncludeParentDirectory: false
         releaseNotesInput: 1
