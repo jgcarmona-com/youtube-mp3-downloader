@@ -76,6 +76,7 @@ steps:
       containerName: $(ContainerName)
       name: AzureFileCopy
 
+
   - task: AppCenterDistribute@3
     displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
