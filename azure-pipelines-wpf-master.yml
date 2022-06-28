@@ -68,7 +68,7 @@ steps:
 # Copy files to Azure Blob Storage or virtual machines
   - task: AzureFileCopy@4
     inputs:
-      sourcePath:  '$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\publish\Application Files'
+      sourcePath:  '$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\publish\Application Files\YoutubeMp3Downloader.WPF_1_0_0_1/*'
       azureSubscription:  $(AzureSubscription)
       destination: azureBlob
       storage: $(StorageAccountName)
@@ -81,7 +81,7 @@ steps:
     inputs:
         serverEndpoint: 'YoutubeMp3DownloaderApp'
         appSlug: $(AppSlug)
-        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\release\\setup.exe
+        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\publish\\setup.exe
         buildVersion: 1
         symbolsIncludeParentDirectory: false
         releaseNotesInput: 1
