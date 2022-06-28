@@ -75,13 +75,24 @@ steps:
       containerName: $(ContainerName)
       name: AzureFileCopy
 
-
+# Archive files
+# Compress files into .7z, .tar.gz, or .zip
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\publish\\setup.exe' 
+      includeRootFolder: false 
+      archiveType: 'zip' # Options: zip, 7z, tar, wim
+      #tarCompression: 'gz' # Optional. Options: gz, bz2, xz, none
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+      #replaceExistingArchive: true 
+      verbose: true # Optional
+      #quiet: # Optional
   - task: AppCenterDistribute@3
     displayName: 'Deploy YoutubeMp3Downloader to Visual Studio App Center'
     inputs:
         serverEndpoint: 'YoutubeMp3DownloaderApp'
         appSlug: $(AppSlug)
-        appFile: $(System.DefaultWorkingDirectory)\YoutubeMp3Downloader.WPF\publish\\setup.exe
+        appFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
         buildVersion: 1
         symbolsIncludeParentDirectory: false
         releaseNotesInput: 1
